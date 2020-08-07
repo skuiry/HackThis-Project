@@ -2,10 +2,10 @@
   "name": "A Soul for a Soul, That is known as Equivalent Exchange",
   "version": "1.0",
   "description": "An extension to help with focus during study or work time.",
-  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "permissions": ["activeTab", "declarativeContent", "storage", "tabs"],
   "options_page": "options.html",
   "background": {
-    "scripts": ["background.js"],
+    "scripts": ["background.js", "redirect.js"],
     "persistent": false
   },
   "page_action": {
