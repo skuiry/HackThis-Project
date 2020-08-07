@@ -5,4 +5,4 @@ Project during HackThis Summer 2020.
   - Shounak Kuiry
   - Vineet Sunkavalli
   - Varun Ruddaraju
-  
+  - Roshan Nadavi
