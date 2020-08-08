@@ -6,7 +6,7 @@
   "permissions": ["activeTab", "declarativeContent", "storage", "tabs"],
   "options_page": "options.html",
   "background": {
-    "scripts": ["background.js", "newlink.js", "blacklist.js"],
+    "scripts": ["background.js","timer.js"],
     "persistent": false
   },
   "page_action": {
