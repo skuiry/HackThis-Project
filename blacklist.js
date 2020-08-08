@@ -4,11 +4,11 @@ var fs = require('fs');
   let websites = [];
   var prompt = window.prompt("How many websites would you blacklist?:" );
 
-  for(int i = 0; i < prompt; i++){
+  for(var i = 0; i < prompt; i++){
     websites.push(window.prompt("Enter website #" + i));
   }
 
-  for ( int i = 0; i < websites.length; i++){
+  for (var i = 0; i < websites.length; i++){
       fs.writeFile(filePath, websites[i], function (err) {
           if (err)  {
             throw err;
