@@ -3,12 +3,19 @@
 bad_url = "https://www.reddit.com/"
 good_url = "https://www.google.com/"
 
+var urlStrip = function(url){
+    url.replace('https://', '');
+    url = url.split('/')[0];
+}
+
 var tabRedirect = function(tab){
-    if(tab.url.localeCompare(bad_url) == 0){
+    var url = tab.url;
+    urlStrip(url);
+    if(url.localeCompare(bad_url) == 0){
         chrome.tabs.update(tab.id, {url: good_url});
         console.log("yo");
     }else{
-        console.log(tab.url);
+        console.log(url);
     }
 }
 
