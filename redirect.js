@@ -18,6 +18,8 @@ var tabRedirect = function(tab){
         console.log(url);
     }
 }
-
+function addtwoandtwo(){
+  console.log(2+2);
+}
 chrome.tabs.onCreated.addListener(function(tab){tabRedirect(tab)});
 chrome.tabs.onUpdated.addListener(function(tabID, newTabInfo, tab){tabRedirect(tab)});

@@ -1,8 +1,7 @@
 var i = 0;
 var tab;
 bad_url = "https://www.reddit.com/";
-var time = setInterval(timer, 1000);
-
+var time = setInterval(timer, 1000); 
 function timer(){
   chrome.tabs.query({url : bad_url}, function (tabs){
 
