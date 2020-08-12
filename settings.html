@@ -51,15 +51,12 @@
                     <option value="11">11:00 PM</option>
                 </select>
             </p>
-            <img src="https://static6.depositphotos.com/1005979/554/i/950/depositphotos_5541876-stock-photo-time-to-focus-clock-of.jpg" alt="FocusImage1" width="200" height="100">
 
             <h2>Free Time Conversion</h2>
             <p>
                 This allows you to control how much time you're allowed on blocked sites depending on the amount of time you spend on allowed sites.<br>
                 Set it to 0 to block them completely; if you set to infinite, you might as well uninstall this :P
             </p>
-            <img src="https://thepitcher.org/wp-content/uploads/2016/08/investors.jpg" alt="Person Focusing" width="200" height="100">
-
             <!--<label for="work">Work Minutes </label>-->
             <p id="freeTimeLabels">
                 For every
@@ -75,7 +72,7 @@
             </p>
 
             <p id="redirectLabels">
-                <input type="checkbox" id="redirectCheck" name="redirectCheck" value="redirect">
+                <input type="checkbox" id="redirectCheck" name="redirectCheck" value = "0">
                 Enable redirecting URLS when time runs out <br>
             </p>
 
@@ -86,10 +83,6 @@
                 <i>(Default is first on the Allowlist, otherwise will not redirect but close)</i>
 
             </p>
-            <img src="https://arspolarispress.com/wp-content/uploads/2014/04/13692635315_8e204684a7_z-1.jpg"
-            alt="blocked site" width="250" height="166">
-
-
             <h2>Blocklist and Allowlist</h2>
             <p>
                 Here, you should be able to add or remove any sites from your blocklist and allowlist.
@@ -98,18 +91,17 @@
             <p>
                 Add to BlockList
                 <input type="text" id="addblock" name="addblock">
-                <button id="add">Add to Blacklist</button><br>
-                <button id="get">get Blacklist</button><br>
+                <button id="add">Add</button><br>
                 Remove from BlockList
                 <input type="text" id="rmblock" name="rmblock">
-                <button id="remove">Remove from Blacklist</button><br>
+                <button id="remove">Remove</button><br>
+                <strong><u>Blocklist</u></strong><p id = "display"></p>
                 -----------------------------------
             </p>
 
             <button id="apply" name="apply" onclick = "applySettings()">Apply Settings</button>
 
         </section>
-        <img src="https://thesgem.com/wp-content/uploads/2019/11/Screen-Shot-2019-11-20-at-10.16.01-PM-1120x640.png" alt="FocusImage" width="500" height="333">
         <footer>
             <p>
                 <b>This app is simply a tool to help you focus on your work. It's up to you to STAY focused!</b>
