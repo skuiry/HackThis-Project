@@ -4,9 +4,9 @@
   "description": "An extension to help with focus during study or work time.",
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "permissions": ["activeTab", "declarativeContent", "storage", "tabs"],
-  "options_page": "options.html",
+  "options_page": "settings.html",
   "background": {
-    "scripts": ["background.js","timer.js", "bundle.js", "dummy.js"],
+    "scripts": ["timer.js"],
     "persistent": false
   },
   "page_action": {
