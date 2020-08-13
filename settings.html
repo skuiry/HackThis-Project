@@ -13,7 +13,7 @@
         <section>
             <h2>Active Hours</h2>
             <p>
-                This controls when the extension will limit your access to blocked.
+                This controls when the extension will limit your access to blocked sites.
             </p>
             <p style="font-style: italic;">
                 Warning: Once this extension is active, the only way to stop it will be to remove it completely.
@@ -72,7 +72,7 @@
             </p>
 
             <p id="redirectLabels">
-                <input type="checkbox" id="redirectCheck" name="redirectCheck" value = "0">
+                <input type="checkbox" id="redirectCheck" name="redirectCheck">
                 Enable redirecting URLS when time runs out <br>
             </p>
 
@@ -94,12 +94,13 @@
                 <button id="add">Add</button><br>
                 Remove from BlockList
                 <input type="text" id="rmblock" name="rmblock">
-                <button id="remove">Remove</button><br>
+                <button id="remove">Remove</button>
+                <button id="removeAll">Remove All</button><br>
                 <strong><u>Blocklist</u></strong><p id = "display"></p>
                 -----------------------------------
             </p>
 
-            <button id="apply" name="apply" onclick = "applySettings()">Apply Settings</button>
+            <button id="apply">Apply Settings</button>
 
         </section>
         <footer>

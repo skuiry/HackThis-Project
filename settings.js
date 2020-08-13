@@ -10,11 +10,15 @@ function applySettings(){
     var freeOverWork = freeTime/workTime;
 
     //now, we're checking for website redirect
-    var redirectCheck = document.getElementById("redirectCheck").value;
+    var redirectCheck = document.getElementById("redirectCheck").checked;
 
     var redirectLink = document.getElementById("redirectURL").value;
 
     chrome.storage.sync.set({['start']: startTime, ['end']: endTime, ['ratio']: freeOverWork, ['redirCheck']: redirectCheck, ['redirURL']: redirectLink});
+    chrome.storage.sync.get(['redirCheck'], function (result){
+      console.log(typeof result.redirCheck);
+    });
+    console.log("Settings saved!");
     //finally, we have allow and blocklist - to be implemented
   }
 
@@ -29,6 +33,7 @@ function addBlocklist(){
       console.log(data.list);
       updateDisplay();
   });
+  console.log(document.getElementById("redirectCheck").checked);
 }
 
 function update(array, link){
@@ -85,7 +90,7 @@ function storageCheck(){
   });
   chrome.storage.sync.get(['redirCheck'], function(result){
     if (typeof result.redirCheck == "undefined"){
-      chrome.storage.sync.set({redirCheck: "0"});
+      chrome.storage.sync.set({redirCheck: false});
     }
     console.log(result.redirCheck);
   });
@@ -99,21 +104,27 @@ function storageCheck(){
 
 function updateDisplay(){
   chrome.storage.sync.get(['list'], function(result){
-    /*for (var x = 0; x < result.list.length; x++){
-      i += result.list[x].toString() + ",\n";
-    }*/
-
-  //});
   document.getElementById("display").innerHTML = result.list;
   });
 }
 
+function clearBlocklist(){
+  chrome.storage.sync.set({['list']: []}, function(result){
+    console.log("Cleared the blocklist!");
+  });
+  updateDisplay();
+}
 document.addEventListener("DOMContentLoaded", function(){
   console.log("page loaded");
+
   storageCheck();
   updateDisplay();
   var link = document.getElementById("add");
   link.addEventListener("click", addBlocklist);
-  var link3 = document.getElementById("remove");
-  link3.addEventListener("click", removeBlocklist);
+  var link2 = document.getElementById("remove");
+  link2.addEventListener("click", removeBlocklist);
+  var link3 = document.getElementById("removeAll");
+  link3.addEventListener("click", clearBlocklist)
+  var link4 = document.getElementById("apply");
+  link4.addEventListener("click", applySettings);
 });
