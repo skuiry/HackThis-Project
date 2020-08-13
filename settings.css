@@ -1,10 +1,14 @@
 body{
-    background-color: whitesmoke;
     color: black;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
 
+body {
+    background-image: url("https://eskipaper.com/images/blurred-background-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 section{
     margin-left: auto;
@@ -12,4 +16,49 @@ section{
     text-align: left;
     max-width: 600px;
     line-height: 150%;
+    font-size: large;
+}
+
+#activeTimeLabels{
+    font-weight: bold;
+    margin-left: 50px;
+}
+
+#freeTimeLabels{
+    font-weight: bold;
+    margin-left: 50px;
+}
+
+#redirectLabels{
+    font-weight: bold;
+    margin-left: 50px;
+}
+
+#blocklistLabels{
+    font-weight: bold;
+    margin-left: 50px;
+}
+
+#blocklistDisplay{
+    margin-left: 80px;
+}
+
+br{
+    margin: 2.4em;
+}
+
+select{
+    width: 100px;
+    font-size: large;
+}
+
+button{
+    text-align:center;
+    font-size: large;
+    width: 100px;
+}
+
+#apply{
+    margin-left: 200px;
+    width: 150px;
 }

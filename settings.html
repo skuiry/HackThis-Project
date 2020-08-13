@@ -8,6 +8,7 @@
     <body>
         <header>
             <h1>Settings and Configuration</h1>
+            <br>
         </header>
 
         <section>
@@ -52,19 +53,24 @@
                 </select>
             </p>
 
+            <br>
+
             <h2>Free Time Conversion</h2>
             <p>
-                This allows you to control how much time you're allowed on blocked sites depending on the amount of time you spend on allowed sites.<br>
-                Set it to 0 to block them completely; if you set to infinite, you might as well uninstall this :P
+                This allows you to control how much time you're allowed on blocked sites depending on the amount of time you spend on allowed sites.<br><br>
+                <i>Set it to 0 to block them completely; if you set to infinite, you might as well uninstall this :P</i>
             </p>
             <!--<label for="work">Work Minutes </label>-->
             <p id="freeTimeLabels">
                 For every
                 <input type="text" id="work" name ="work">
-                minutes of work, I get
+                minutes of work,<br>
+                I get
                 <input type="text" id="free" name="free">
                 minutes of free time.
             </p>
+
+            <br>
 
             <h2>Website Redirect</h2>
             <p>
@@ -76,19 +82,18 @@
                 Enable redirecting URLS when time runs out <br>
             </p>
 
-            <p>
                 Redirect URL:
                 <input type="text" id="redirectURL" name="redirectURL"><br>
-
-                <i>(Default is first on the Allowlist, otherwise will not redirect but close)</i>
-
             </p>
+
+            <br>
+
             <h2>Blocklist and Allowlist</h2>
             <p>
                 Here, you should be able to add or remove any sites from your blocklist and allowlist.
             </p>
 
-            <p>
+            <p id="blocklistLabels">
                 Add to BlockList
                 <input type="text" id="addblock" name="addblock">
                 <button id="add">Add</button><br>
@@ -104,6 +109,9 @@
 
         </section>
         <footer>
+
+            <br>
+
             <p>
                 <b>This app is simply a tool to help you focus on your work. It's up to you to STAY focused!</b>
                  </p>
