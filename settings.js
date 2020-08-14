@@ -64,19 +64,19 @@ function removeBlocklist(){
 function storageCheck(){
   chrome.storage.sync.get(['list'], function(result){
     if (result.list == undefined){
-      chrome.storage.sync.set({list: []});
+      chrome.storage.sync.set({list: ["*://*.youtube.com/*"]});
     }
     console.log(result.list);
   });
   chrome.storage.sync.get(['start'], function(result){
     if (result.start == undefined){
-      chrome.storage.sync.set({start: 12});
+      chrome.storage.sync.set({start: 0});
     }
     console.log(result.start);
   });
   chrome.storage.sync.get(['end'], function(result){
     if (result.end == undefined){
-      chrome.storage.sync.set({end: 0});
+      chrome.storage.sync.set({end: 12});
     }
     console.log(result.end);
   });
@@ -110,7 +110,7 @@ function updateDisplay(){
 }
 
 function clearBlocklist(){
-  chrome.storage.sync.set({['list']: []}, function(result){
+  chrome.storage.sync.set({['list']: ["*://*.youtube.com/*"]}, function(result){
     console.log("Cleared the blocklist!");
   });
   updateDisplay();

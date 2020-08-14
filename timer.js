@@ -1,5 +1,5 @@
 var i = 0;
-
+var time;
 var burl;
 chrome.storage.sync.get(['list'], function(result){
   burl = result.list;
@@ -21,7 +21,7 @@ chrome.storage.sync.get(['start'], function (result){
   var n  = d.getHours();
   console.log(n);
   if (n >= startTime && n < endTime){
-  var time = setInterval(timer, 1000);
+    time = setInterval(timer, 1000);
   }
   else{
     clearInterval(time);
@@ -82,8 +82,9 @@ try{
 catch (error){
   console.log("Settings page isn't opened currently!");
 }
+
 chrome.tabs.query({}, function (tabs){
-    if (tabs.length == 0){
+    if (tabs.length == 0 ){
       console.log("Closing program...");
       clearInterval(time);
     }
