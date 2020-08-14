@@ -29,7 +29,10 @@ chrome.storage.sync.get(['start'], function (result){
   });
 });
 
-
+function checkTime(){
+if (!(n >= startTime && n < endTime))
+  clearInterval(time);
+}
 
 function stopDistraction(){
   var redir = false;
@@ -74,6 +77,7 @@ function timer(){
 });
 try{
   updateTime();
+  checkTime();
 }
 catch (error){
   console.log("Settings page isn't opened currently!");
@@ -87,5 +91,5 @@ chrome.tabs.query({}, function (tabs){
 }
 
 function updateTime(){
-  document.getElementById("mins").innerHTML = i/60;
+  document.getElementById("mins").innerHTML = i/(ratio * 60);
 }
