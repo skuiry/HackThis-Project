@@ -1,8 +1,8 @@
 {
   "name": "Minute for Minute",
   "version": "1.0",
-  "description": "An extension to help with focus during study or work time.",
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "description": "An extension to help with focus during study or work time. On installation, please open the settings page to instill default values/change the configuration to your needs.",
+  "content_security_policy": "script-src 'self' ; object-src 'self'",
   "permissions": ["activeTab", "declarativeContent", "storage", "tabs"],
   "options_page": "settings.html",
   "background": {
