@@ -7,12 +7,13 @@ function applySettings(){
     var freeTime = parseFloat(document.getElementById("free").value);
     var workTime = parseFloat(document.getElementById("work").value);
 
-    var freeOverWork = freeTime/workTime;
+    var freeOverWork = workTime/freeTime;
 
     //now, we're checking for website redirect
     var redirectCheck = document.getElementById("redirectCheck").checked;
 
     var redirectLink = document.getElementById("redirectURL").value;
+    redirectLink = "https://www." + redirectLink + "/";
 
     chrome.storage.sync.set({['start']: startTime, ['end']: endTime, ['ratio']: freeOverWork, ['redirCheck']: redirectCheck, ['redirURL']: redirectLink});
     chrome.storage.sync.get(['redirCheck'], function (result){
@@ -21,10 +22,6 @@ function applySettings(){
     console.log("Settings saved!");
     //finally, we have allow and blocklist - to be implemented
   }
-
-function returnConfig(id){
-    return settings[id];
-}
 
 function addBlocklist(){
   var add = document.getElementById("addblock").value;
@@ -37,7 +34,8 @@ function addBlocklist(){
 }
 
 function update(array, link){
-  array.push(link);
+  var newLink = "*://*." + link + "/*";
+  array.push(newLink);
   chrome.storage.sync.set({
     list:array
   }, function (){
@@ -84,7 +82,7 @@ function storageCheck(){
   });
   chrome.storage.sync.get(['ratio'], function(result){
     if (typeof result.ratio == "undefined"){
-      chrome.storage.sync.set({ratio: 0.5});
+      chrome.storage.sync.set({ratio: 5});
     }
     console.log(result.work);
   });
@@ -96,7 +94,7 @@ function storageCheck(){
   });
   chrome.storage.sync.get(['redirURL'], function(result){
     if (typeof result.redirURL == "undefined"){
-      chrome.storage.sync.set({redirURL: "google.com"});
+      chrome.storage.sync.set({redirURL: "https://www.google.com/"});
     }
     console.log(result.redirURL);
   });
@@ -105,6 +103,9 @@ function storageCheck(){
 function updateDisplay(){
   chrome.storage.sync.get(['list'], function(result){
   document.getElementById("display").innerHTML = result.list;
+  });
+  chrome.storage.sync.get(['redirURL'], function(result){
+    document.getElementById("url").innerHTML = result.redirURL;
   });
 }
 

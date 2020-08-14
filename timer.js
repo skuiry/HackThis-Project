@@ -1,9 +1,35 @@
 var i = 0;
-var tab;
 
-var burl = "https://www.reddit.com/";
+var burl;
+chrome.storage.sync.get(['list'], function(result){
+  burl = result.list;
+})
 
-var time = setInterval(timer, 1000);
+var ratio;
+chrome.storage.sync.get(['ratio'], function(result){
+  ratio = result.ratio;
+})
+
+var startTime,endTime;
+chrome.storage.sync.get(['start'], function (result){
+  startTime = result.start;
+  console.log(startTime);
+  chrome.storage.sync.get(['end'], function (result){
+  endTime = result.end;
+  console.log(endTime);
+  var d = new Date();
+  var n  = d.getHours();
+  console.log(n);
+  if (n >= startTime && n < endTime){
+  var time = setInterval(timer, 1000);
+  }
+  else{
+    clearInterval(time);
+  }
+  });
+});
+
+
 
 function stopDistraction(){
   var redir = false;
@@ -11,10 +37,9 @@ function stopDistraction(){
     redir = result.redirCheck;
     chrome.storage.sync.get(['redirURL'], function(result){
       var goodURL = result.redirURL;
-      chrome.tabs.query({}, function (tabs) {
+      chrome.tabs.query({url:burl}, function (tabs) {
         if (tabs != undefined){
           tabs.forEach(function (tab){
-            if (tab.url.localeCompare(burl) == 0){
               if (!redir){
                 chrome.tabs.remove(parseInt(tab.id));
                 console.log("tab has been sent to hell");
@@ -22,7 +47,7 @@ function stopDistraction(){
               else{
                 chrome.tabs.update(tab.id,{url: goodURL});
               }
-          }});
+        });
         }
       });
     });
@@ -31,10 +56,10 @@ function stopDistraction(){
 
 function timer(){
   chrome.tabs.query({url : burl}, function (tabs){
-
+    if (tabs != undefined){
     if (tabs.length != 0){
       if (i > 0){
-        i--;
+        i -= ratio;
         console.log(i);
       }
       else{
@@ -45,15 +70,22 @@ function timer(){
       i++;
       console.log(i);
     }
-  });
+  }
+});
+try{
+  updateTime();
+}
+catch (error){
+  console.log("Settings page isn't opened currently!");
+}
 chrome.tabs.query({}, function (tabs){
     if (tabs.length == 0){
-      console.log("hi");
+      console.log("Closing program...");
       clearInterval(time);
     }
   });
 }
 
-function getTimeLeft(){
-  return i;
+function updateTime(){
+  document.getElementById("mins").innerHTML = i/60;
 }

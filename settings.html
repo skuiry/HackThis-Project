@@ -4,26 +4,29 @@
         <title>Settings</title>
         <link rel="stylesheet" href="settings.css">
         <script src = "settings.js"></script>
+        <script src = "timer.js"></script>
     </head>
     <body>
         <header>
             <h1>Settings and Configuration</h1>
-            <br>
-        </header>
 
+        </header>
+          <h2><u>Free time available</u></h2>
+            <h2 id = "mins"></h2><h2> minutes</h2>
         <section>
+          <h3>NOTE:</h3> When entering URLs, please enter them in the following format: domain.topleveldomain --> e.g. google.com
             <h2>Active Hours</h2>
             <p>
                 This controls when the extension will limit your access to blocked sites.
             </p>
             <p style="font-style: italic;">
-                Warning: Once this extension is active, the only way to stop it will be to remove it completely.
+                Warning: Once this extension is active, the only way to stop it will be to disable it.
             </p>
 
             <p id="activeTimeLabels">
                 From
                 <select id="startTime" name="startTime">
-                    <option value="12">12:00 AM</option>
+                    <option value="0">12:00 AM</option>
                     <option value="1">1:00 AM</option>
                     <option value="2">2:00 AM</option>
                     <option value="3">3:00 AM</option>
@@ -39,17 +42,17 @@
                 to
                 <select id="endTime" name="endTime">
                     <option value="12">12:00 PM</option>
-                    <option value="1">1:00 PM</option>
-                    <option value="2">2:00 PM</option>
-                    <option value="3">3:00 PM</option>
-                    <option value="4">4:00 PM</option>
-                    <option value="5">5:00 PM</option>
-                    <option value="6">6:00 PM</option>
-                    <option value="7">7:00 PM</option>
-                    <option value="8">8:00 PM</option>
-                    <option value="9">9:00 PM</option>
-                    <option value="10">10:00 PM</option>
-                    <option value="11">11:00 PM</option>
+                    <option value="13">1:00 PM</option>
+                    <option value="14">2:00 PM</option>
+                    <option value="15">3:00 PM</option>
+                    <option value="16">4:00 PM</option>
+                    <option value="17">5:00 PM</option>
+                    <option value="18">6:00 PM</option>
+                    <option value="19">7:00 PM</option>
+                    <option value="20">8:00 PM</option>
+                    <option value="21">9:00 PM</option>
+                    <option value="22">10:00 PM</option>
+                    <option value="23">11:00 PM</option>
                 </select>
             </p>
 
@@ -58,23 +61,24 @@
             <h2>Free Time Conversion</h2>
             <p>
                 This allows you to control how much time you're allowed on blocked sites depending on the amount of time you spend on allowed sites.<br><br>
-                <i>Set it to 0 to block them completely; if you set to infinite, you might as well uninstall this :P</i>
+                <i>Set it to 0 to block them completely; if you set this to infinite, you might as well uninstall this :P</i>
             </p>
             <!--<label for="work">Work Minutes </label>-->
             <p id="freeTimeLabels">
                 For every
-                <input type="text" id="work" name ="work">
-                minutes of work,<br>
+                <input type="text" id="work" name ="work" value = "5">
+                minute(s) of work,<br>
                 I get
-                <input type="text" id="free" name="free">
-                minutes of free time.
+                <input type="text" id="free" name="free" value = "1">
+                minute(s) of free time.
             </p>
 
             <br>
 
             <h2>Website Redirect</h2>
             <p>
-                If checked, this will make the extension reroute any blocked sites to an allowed site of your choice.
+                If checked, this will make the extension reroute any blocked sites to an allowed site of your choice. Make sure this site isn't on the blocklist or else the extension will end up
+                in an infinite loop!
             </p>
 
             <p id="redirectLabels">
@@ -85,7 +89,7 @@
                 Redirect URL:
                 <input type="text" id="redirectURL" name="redirectURL"><br>
             </p>
-
+              <p>Current Redirect:</p><p id = "url"></p>
             <br>
 
             <h2>Blocklist and Allowlist</h2>
