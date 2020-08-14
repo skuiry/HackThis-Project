@@ -63,37 +63,37 @@ function removeBlocklist(){
 
 function storageCheck(){
   chrome.storage.sync.get(['list'], function(result){
-    if (typeof result.list == "undefined"){
+    if (result.list == undefined){
       chrome.storage.sync.set({list: []});
     }
     console.log(result.list);
   });
   chrome.storage.sync.get(['start'], function(result){
-    if (typeof result.start == "undefined"){
+    if (result.start == undefined){
       chrome.storage.sync.set({start: 12});
     }
     console.log(result.start);
   });
   chrome.storage.sync.get(['end'], function(result){
-    if (typeof result.end == "undefined"){
+    if (result.end == undefined){
       chrome.storage.sync.set({end: 0});
     }
     console.log(result.end);
   });
   chrome.storage.sync.get(['ratio'], function(result){
-    if (typeof result.ratio == "undefined"){
+    if (result.ratio == undefined){
       chrome.storage.sync.set({ratio: 5});
     }
     console.log(result.work);
   });
   chrome.storage.sync.get(['redirCheck'], function(result){
-    if (typeof result.redirCheck == "undefined"){
+    if (result.redirCheck == undefined){
       chrome.storage.sync.set({redirCheck: false});
     }
     console.log(result.redirCheck);
   });
   chrome.storage.sync.get(['redirURL'], function(result){
-    if (typeof result.redirURL == "undefined"){
+    if (result.redirURL == undefined){
       chrome.storage.sync.set({redirURL: "https://www.google.com/"});
     }
     console.log(result.redirURL);
